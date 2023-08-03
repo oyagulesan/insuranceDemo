@@ -202,17 +202,13 @@ export const setLocalStorage = () => {
     const yearsUntilRetirement = (currentAge >= 46) ? 10 : (56 - currentAge);
     const yearsAfterRetirement = yearsToLive - yearsUntilRetirement;
     const numberOfPersons = 1 + 0.5 * (person.relation[0].value + Math.min(person.numberOfChildren, 2));
-    console.log('numberOfPersons', numberOfPersons);
     const lifeStyleConstants = [18000, 30000, 42000].map(i => i * numberOfPersons);
-    console.log('lifeStyleConstants', lifeStyleConstants);
     const carBasedOnLifeStyle = [25000, 50000, 75000];
     const houseBasedOnLifeStyle = [150000, 250000, 400000];
-    console.log('yearsAfterRetirement', yearsAfterRetirement);
-    console.log('savingRequired', lifeStyleConstants[person.lifeStyle[0].value] * yearsAfterRetirement);
-    console.log('(person.saving - person.debt)', (person.saving - person.debt));
-    const savingRequired = lifeStyleConstants[person.lifeStyle[0].value] * yearsAfterRetirement - (person.saving - person.debt);
-    console.log('savingRequired', savingRequired);
-    const totalRequired = lifeStyleConstants[person.lifeStyle[0].value] * yearsToLive - (person.saving - person.debt)
+    const savingRequired = lifeStyleConstants[person.lifeStyle[0].value] * yearsAfterRetirement 
+      - (person.saving - person.debt);
+    const totalRequired = lifeStyleConstants[person.lifeStyle[0].value] * yearsToLive 
+      - (person.saving - person.debt)
       + (person.goals != null && person.goals.find(item => item.value === goalOptions[0].value) != null ? houseBasedOnLifeStyle[person.lifeStyle[0].value] : 0)
       + (person.goals != null && person.goals.find(item => item.value === goalOptions[1].value) != null ? carBasedOnLifeStyle[person.lifeStyle[0].value] : 0);
 

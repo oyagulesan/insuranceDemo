@@ -27,8 +27,8 @@ export default function SingleInputArea(props) {
               type={props.type}
               min={props.min}
               max={props.max}
-              onChange={onChange}
-              checked={val}>
+              onKeyDown={props.onKeyDown}
+              onChange={onChange}>
             </input> :
             <input
               className="input_style"                
@@ -37,6 +37,7 @@ export default function SingleInputArea(props) {
               min={props.min}
               max={props.max}
               onChange={onChange}
+              onKeyDown={props.onKeyDown}
               checked={val}
               value={val}>
             </input>

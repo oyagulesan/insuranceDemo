@@ -30,6 +30,9 @@ export default function MainForm({ onButtonClick, onSetDisabled }) {
     }
     nameSingleInputProps.value = state.name;
     ageSingleInputProps.value = state.age;
+    ageSingleInputProps.onKeyDown = (event) => {
+        event.preventDefault();
+    }
     ageSingleInputProps.onChange = (event) => {
         setAge(parseInt(event.target.value));        
     }
@@ -49,6 +52,11 @@ export default function MainForm({ onButtonClick, onSetDisabled }) {
         setNumberOfChildren(parseInt(event.target.value));
         setNum(parseInt(event.target.value));
     }
+    childSingleInputProps.onKeyDown = (event) => {
+        event.preventDefault();
+    }
+    childSingleInputProps.min = 0;
+    childSingleInputProps.max = 10;
     const onChildAgeChange = (event, index) => {
         let children = null        
         if (state.children == null || state.children.length === 0) {
