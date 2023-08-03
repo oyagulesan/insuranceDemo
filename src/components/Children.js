@@ -13,7 +13,7 @@ export default function Children(props) {
         const tmpProps = {...ageSingleInputProps};
         tmpProps.onChange = (event) => props.onChange(event, index);
         tmpProps.value = state.children[index].age;
-        const tempProps = {...tmpProps, label: 'Çocuk ' + (index + 1) + ' yaş:', key: index, value: state.children[index].age}
+        const tempProps = {...tmpProps, min:0, max: 25, label: 'Çocuk ' + (index + 1) + ' yaş:', key: index, value: state.children[index].age}
         return <SingleInputArea {...tempProps} />
       })}
     </div>
